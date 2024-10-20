@@ -1,0 +1,67 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TRPO.MainPage"
+             BackgroundColor="OldLace">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Text="2048"
+               FontSize="56"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Margin="30"
+               TextColor="Sienna"
+               Height="200"
+               
+               />
+
+        <Grid x:Name="GameGrid"  Grid.Row="1" Padding="7" ColumnSpacing="5" RowSpacing="5" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Sienna">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Стилизация ячеек в сетке -->
+            <Grid.Resources HorizontalOptions="Center" VerticalOptions="Center" >
+                <Style TargetType="Label" >
+                    <Setter Property="WidthRequest" Value="80"/>
+                    <Setter Property="HeightRequest" Value="80"/>
+                    <Setter Property="BackgroundColor" Value="LightGray"/>
+                    <Setter Property="TextColor" Value="Black"/>
+                    <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                    <Setter Property="VerticalTextAlignment" Value="Center"/>
+                </Style>
+            </Grid.Resources>
+        </Grid>
+
+        <StackLayout Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center">
+            <Button Text="UP" Clicked="OnUpClicked" HorizontalOptions="Center" WidthRequest="100" Margin="5" TextColor="White" BackgroundColor="Sienna"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button Text="LEFT" Clicked="OnLeftClicked" WidthRequest="100" Margin="5" TextColor="White" BackgroundColor="Sienna"/>
+                <Button Text="RIGHT" Clicked="OnRightClicked" WidthRequest="100" Margin="5" TextColor="White" BackgroundColor="Sienna"/>
+            </StackLayout>
+            <Button Text="DOWN" TextColor="White" BackgroundColor="Sienna" Clicked="OnDownClicked" HorizontalOptions="Center" WidthRequest="100" Margin="5"/>
+        </StackLayout>
+
+        <Button Text="Restart"
+                Grid.Row="2"
+                HorizontalOptions="End"
+                Clicked="OnRestartClicked"
+                Margin="5"
+                TextColor="White" BackgroundColor="Sienna"
+                />
+    </Grid>
+</ContentPage>
